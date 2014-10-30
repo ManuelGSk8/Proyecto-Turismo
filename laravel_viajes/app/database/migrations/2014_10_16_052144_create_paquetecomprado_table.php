@@ -16,7 +16,7 @@ class CreatePaquetecompradoTable extends Migration {
 		{
 			$table->increments('id');
             $table->integer('id_usuario')->unsigned();
-            $table->foreign('id_usuario')->references('id')->on('usuario');
+            $table->foreign('id_usuario')->references('id')->on('user');
             $table->integer('id_paquete')->unsigned();
             $table->foreign('id_paquete')->references('id')->on('paqueteturistico');
             $table->string('codigo_compra');
