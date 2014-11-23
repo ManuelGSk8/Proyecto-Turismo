@@ -22,6 +22,8 @@ class CreateAgenciaturisticaTable extends Migration {
             $table->string('direccion');
             $table->string('contacto');
             $table->string('web');
+            $table->string('latitud');
+            $table->string('longitud');
 
            // $table->string('latitud');
            // $table->string('longitud');

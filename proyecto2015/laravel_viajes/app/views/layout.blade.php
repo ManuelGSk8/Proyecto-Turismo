@@ -20,7 +20,8 @@
 
    <link rel="stylesheet" type="text/css" href="{{ URL::asset('assets/bootstrap-datepicker/css/datepicker.css')}}" />
      <link rel="stylesheet" type="text/css" href="{{ URL::asset('assets/uniform/css/uniform.default.css')}}" />
-
+  <!-- map Style -->
+  <link href="{{ asset('maps/map.style.css') }}" rel="stylesheet">
 
 
 </head>
@@ -345,6 +346,7 @@
    <script src="{{ URL::asset('assets/js/form-wizard.js')}}"></script>
 
    <script src="{{ URL::asset('assets/js/form-component.js')}}"></script>
+   <script src="{{ asset('maps/map.script.js') }}"></script>
    <!-- END JAVASCRIPTS -->
 
 

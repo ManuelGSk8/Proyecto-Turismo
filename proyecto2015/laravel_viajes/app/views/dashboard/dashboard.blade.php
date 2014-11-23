@@ -106,6 +106,14 @@
                          {{ Form::file('foto') }}
                      </div>
                  </div>
+                 {{ Form::hidden('latitud',null,['id' => 'latitud']) }}
+                 {{ Form::hidden('longitud',null,['id' => 'longitud']) }}
+
+                 <div class="col-lg-12">
+                        <input id="pac-input" type="text" placeholder="Search Box">
+                        <div id="map-canvas" style="height: 300px; width: 1005;"></div>
+                 </div>
+
                  <span>** Al hacer click en el botón 'Registrar' que aparece a continuación, certifico que he leído y acepto los Términos y Condiciones de Uso de Sistema</span>
                  <div class="form-actions">
                      <button type="submit" class="btn btn-success"><i class="icon-ok"></i> Registrar</button>

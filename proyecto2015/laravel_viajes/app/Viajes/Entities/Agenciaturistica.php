@@ -2,7 +2,7 @@
 namespace Viajes\Entities;
 
 class Agenciaturistica extends \Eloquent {
-	protected $fillable = array('ruc','razon_social','nombre_Comercial','telefono','direccion','contacto','web','foto','id_usuario');
+	protected $fillable = array('ruc','razon_social','nombre_Comercial','telefono','direccion','contacto','web','latitud','longitud','foto','id_usuario');
 
 
     public static function countAgenciaTuristica($idUsuario){

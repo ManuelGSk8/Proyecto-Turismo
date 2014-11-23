@@ -10,13 +10,16 @@
 | and give it the Closure to execute when that URI is requested.
 |
 */
-
 Route::get('/', ['as' => 'home', 'uses' => 'HomeController@show']);
+Route::get('/login', ['as' => 'login', 'uses' => 'HomeController@login']);
+Route::group(array('before' => 'auth'), function()
+{
+
 
 Route::get('/dashboard', ['as' => 'dashboard', 'uses' => 'HomeController@dashboard']);
 
 /*Post Login*/
-Route::post('/login-agencia', ['as' => 'login-agencia', 'uses' => 'HomeController@login']);
+Route::post('/login-agencia', ['as' => 'login-agencia', 'uses' => 'HomeController@logeo']);
 
 /*Post Admi Agencia Turistica*/
 Route::post('/upagencia', ['as' => 'upagencia', 'uses' => 'AgenciaTuristicaController@upAgencia']);
@@ -57,6 +60,7 @@ Route::put('/update_usuario', ['as' => 'update_usuario', 'uses' => 'UsuarioContr
 
 Route::any("/logout", ["as" => "logout","uses" => "HomeController@logoutAction" ]);
 
+});
 /*Route Get JSON - Android - Login */
 
 Route::get('/json/login/u/{usuario}/c/{password}', ['as' => 'json-login', 'uses' => 'HomeController@JsonLogin']);

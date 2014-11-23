@@ -19,6 +19,7 @@ class AgenciaTuristicaController extends  BaseController{
 
     public function upAgencia()
     {
+
       $rules = [
              'ruc'                   => 'required|max:11|min:11|unique:agenciaturisticas',
              'razon_social'          => 'required|regex:/^[a-zéíóáú\s]+$/i',
@@ -36,7 +37,7 @@ class AgenciaTuristicaController extends  BaseController{
                 'ruc.unique'=>'El ruc se encuentra Registrado'
 
         ];
-        $validation=\Validator::make(Input::all(),$rules,$mensaje);
+        $validation=\Validator::make(Input::all(),$rules);
         if($validation->passes()){
 
             $file=\Illuminate\Support\Facades\Input::file("foto");
@@ -51,16 +52,20 @@ class AgenciaTuristicaController extends  BaseController{
                         "direccion"=>Input::get("direccion"),
                         "contacto"=>Input::get("contacto"),
                         "web"=>Input::get("web"),
+                        "latitud" => Input::get('latitud'),
+                        "longitud" => Input::get('longitud'),
                         "foto"=>Input::file("foto")->getClientOriginalName(),
                         "id_usuario"=>$idUsuario
                     ));
-                if($agencia->save()){
 
+                    
+                if($agencia->save()){
                     $file->move("fotoSubida",$file->getClientOriginalName());
                     $mensaje="<hr><label class='label label-info'>Se creo la agencia turistica.</label>";
                     return Redirect::back()->with("mensaje",$mensaje);
                 }
         }else{
+            dd($validation->messages());
             return Redirect::to('dashboard')->withErrors($validation->messages());
         }
 

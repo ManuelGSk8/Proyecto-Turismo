@@ -12,12 +12,17 @@ class HomeController extends BaseController {
 		return View::make('login');
 	}
 
+    public function login()
+    {
+        return View::make('login');
+    }
+
     public function dashboard(){
         return View::make('dashboard.dashboard');
     }
 
 
-    public function  login(){
+    public function  logeo(){
 
         $rules = [
             'email'                 => 'required|email',
